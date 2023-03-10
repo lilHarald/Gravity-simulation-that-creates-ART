@@ -88,7 +88,7 @@ def gravity():
             if distance_squared == 0:
                 continue
 
-            if math.sqrt(distance_squared) < math.sqrt(bodies[i].radius ** 2 + bodies[j].radius ** 2):
+            if distance_squared < bodies[i].radius ** 2 + bodies[j].radius ** 2:
                 if MERGE_WHEN_COLLIDE:
                     bodies[i].pos[0] = (bodies[i].radius * bodies[i].pos[0] + bodies[j].radius * bodies[j].pos[0]) / (bodies[i].radius + bodies[j].radius)
                     bodies[i].direction[0] = (bodies[i].direction[0] * bodies[i].mass + bodies[j].direction[0] * bodies[j].mass) / (bodies[j].mass + bodies[i].mass)
